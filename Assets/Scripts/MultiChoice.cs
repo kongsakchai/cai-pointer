@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class MultiChoice : MonoBehaviour
 {
-    [SerializeField] string scene;
     [SerializeField] Choice[] choices;
     void Start()
     {
@@ -26,18 +26,13 @@ public class MultiChoice : MonoBehaviour
     public void OnCorrect()
     {
         Debug.Log("Correct");
-        NextScene();
+        TestManager.main.OnCorrect();
     }
 
     public void OnIncorrect()
     {
         Debug.Log("Incorrect");
-        NextScene();
-    }
-
-    void NextScene()
-    {
-        // SceneManager.LoadScene(scene);
+        TestManager.main.OnIncorrect();
     }
 }
 
