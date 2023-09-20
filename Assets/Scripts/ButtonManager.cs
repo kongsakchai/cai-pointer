@@ -24,4 +24,8 @@ public class ButtonManager : MonoBehaviour
     public void toTitleScene() {
         SceneManager.LoadScene("Title");
     }
+
+    public void toLearningScene() {
+        SceneManager.LoadScene("Learning_Menu_Screen");
+    }
 }
