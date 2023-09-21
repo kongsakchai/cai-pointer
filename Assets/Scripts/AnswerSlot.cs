@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 public class AnswerSlot : MonoBehaviour
 {
     public Image[] answers;
+    public int[] answersCorrection = new int[10];
+    int[] answersData = new int[10];
+
     DraggableItem currentAnswer;
 
     public Vector2 findDropPosition(DraggableItem newAnswer, Vector2 initPosition)
@@ -21,9 +24,24 @@ public class AnswerSlot : MonoBehaviour
                     currentAnswer.resetPosition();
                 }
                 currentAnswer = newAnswer;
+                answersData[i] = newAnswer.getData();
                 return answers[i].transform.position;
             }
         }
         return initPosition;
+    }
+
+    public bool checkAnswer()
+    {
+        for (int i = 0; i < answersCorrection.Length; i++)
+        {
+            if (answersCorrection[i] != answersData[i])
+            {
+                Debug.Log("INCORRECT");
+                return false;
+            }
+        }
+        Debug.Log("CORRECT");
+        return true;
     }
 }

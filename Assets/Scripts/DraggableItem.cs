@@ -10,6 +10,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Transform parentAfterDrag;
     Vector2 initPosition;
     public AnswerSlot answerSlot;
+    public int data;
 
     void Start()
     {
@@ -40,5 +41,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void resetPosition()
     {
         image.transform.position = initPosition;
+    }
+
+    public int getData()
+    {
+        return data;
     }
 }

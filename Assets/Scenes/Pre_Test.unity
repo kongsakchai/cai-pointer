@@ -396,6 +396,7 @@ MonoBehaviour:
   image: {fileID: 111671534}
   parentAfterDrag: {fileID: 0}
   answerSlot: {fileID: 2078600803}
+  data: 2
 --- !u!1 &410878530
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +534,7 @@ MonoBehaviour:
   image: {fileID: 410878533}
   parentAfterDrag: {fileID: 0}
   answerSlot: {fileID: 2078600803}
+  data: 4
 --- !u!1 &658686848
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,6 +956,7 @@ MonoBehaviour:
   image: {fileID: 719849765}
   parentAfterDrag: {fileID: 0}
   answerSlot: {fileID: 2078600803}
+  data: 1
 --- !u!1 &746930290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1372,7 @@ MonoBehaviour:
   image: {fileID: 1137937992}
   parentAfterDrag: {fileID: 0}
   answerSlot: {fileID: 2078600803}
+  data: 3
 --- !u!1 &1142213235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,6 +2001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   answers:
   - {fileID: 691694321}
+  answersCorrection: 02000000
 --- !u!1 &2115351865
 GameObject:
   m_ObjectHideFlags: 0
