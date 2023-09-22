@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Learning_Menu_Screen.unity
     guid: da6b25f85ee309f43bd32e0e4b113733
+  - enabled: 1
+    path: Assets/Scenes/Pre_Test.unity
+    guid: 8b935733d00a834448659d3515750567
   m_configObjects: {}

@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void toMenuScene() {
         SceneManager.LoadScene("Menu_Screen");
     }
@@ -27,5 +15,9 @@ public class ButtonManager : MonoBehaviour
 
     public void toLearningScene() {
         SceneManager.LoadScene("Learning_Menu_Screen");
+    }
+
+    public void toPretestScene() {
+        SceneManager.LoadScene("Pre_test");
     }
 }

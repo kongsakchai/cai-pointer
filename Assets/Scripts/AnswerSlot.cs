@@ -31,17 +31,24 @@ public class AnswerSlot : MonoBehaviour
         return initPosition;
     }
 
-    public bool checkAnswer()
+    public void checkAnswer()
     {
+        bool isCorrect = true;
         for (int i = 0; i < answersCorrection.Length; i++)
         {
             if (answersCorrection[i] != answersData[i])
             {
-                Debug.Log("INCORRECT");
-                return false;
+                isCorrect = false;
             }
         }
-        Debug.Log("CORRECT");
-        return true;
+
+        if (isCorrect)
+        {
+            Debug.Log("CORRECT");
+        }
+        else
+        {
+            Debug.Log("INCORRECT");
+        }
     }
 }
