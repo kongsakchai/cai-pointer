@@ -25,13 +25,14 @@ public class MultiChoice : MonoBehaviour
     // Update is called once per frame
     public void OnCorrect()
     {
-        Debug.Log("Correct");
+        // Debug.Log("Correct");
+        TestManager.main.updateScore();
         TestManager.main.OnCorrect();
     }
 
     public void OnIncorrect()
     {
-        Debug.Log("Incorrect");
+        // Debug.Log("Incorrect");
         TestManager.main.OnIncorrect();
     }
 }
