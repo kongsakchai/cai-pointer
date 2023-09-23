@@ -10,7 +10,7 @@ public class AnswerSlot : MonoBehaviour
     public int[] answersCorrection = new int[10];
     int[] answersData = new int[10];
 
-    DraggableItem currentAnswer;
+    DraggableItem[] currentAnswer = new DraggableItem[5];
     [SerializeField] TestManager testManager;
 
     public Vector2 findDropPosition(DraggableItem newAnswer, Vector2 initPosition)
@@ -20,11 +20,11 @@ public class AnswerSlot : MonoBehaviour
             float distance = Vector3.Distance(newAnswer.transform.position, answers[i].transform.position);
             if (distance < 30)
             {
-                if (currentAnswer)
+                if (currentAnswer[i])
                 {
-                    currentAnswer.resetPosition();
+                    currentAnswer[i].resetPosition();
                 }
-                currentAnswer = newAnswer;
+                currentAnswer[i] = newAnswer;
                 answersData[i] = newAnswer.getData();
                 return answers[i].transform.position;
             }

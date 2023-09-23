@@ -18,6 +18,10 @@ public class ButtonManager : MonoBehaviour
     }
 
     public void toPretestScene() {
-        SceneManager.LoadScene("Pre_test");
+        SceneManager.LoadScene("Pre_Test");
+    }
+
+    public void toPosttestScene() {
+        SceneManager.LoadScene("Post_Test");
     }
 }
