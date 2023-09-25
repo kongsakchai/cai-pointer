@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TestManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class TestManager : MonoBehaviour
     [SerializeField] int questionNumbers;
     int score;
     [SerializeField] TextMeshProUGUI textScore;
+    [SerializeField] bool pretest;
+    [SerializeField] bool posttest;
+    [Space]
+    [SerializeField] TextMeshProUGUI textPreScore;
 
     void Awake()
     {
@@ -21,16 +26,10 @@ public class TestManager : MonoBehaviour
     void Start()
     {
         Next();
-    }
-
-    public void OnCorrect()
-    {
-        Next();
-    }
-
-    public void OnIncorrect()
-    {
-        Next();
+        if (textPreScore != null)
+        {
+            textPreScore.text = PlayerPrefs.GetInt("PreTest", 0) + "%";
+        }
     }
 
     public void Next()
@@ -39,15 +38,32 @@ public class TestManager : MonoBehaviour
         {
             question[start - 1].SetActive(false);
         }
+
         if (start < question.Length)
         {
-            question[start++].SetActive(false);
+            question[start++].SetActive(true);
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Post_Test");
     }
 
     public void updateScore()
     {
         score += 1;
-        textScore.text = ((int)(((float)score / (float)questionNumbers) * 100)).ToString() + "%";
+        int percen = (int)((float)score / (float)questionNumbers * 100);
+        textScore.text = percen + "%";
+
+        if (pretest)
+        {
+            PlayerPrefs.SetInt("PreTest", percen);
+        }
+
+        if (posttest)
+        {
+            PlayerPrefs.SetInt("PostTest", percen);
+        }
     }
 }

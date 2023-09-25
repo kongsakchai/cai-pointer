@@ -27,13 +27,13 @@ public class MultiChoice : MonoBehaviour
     {
         // Debug.Log("Correct");
         TestManager.main.updateScore();
-        TestManager.main.OnCorrect();
+        TestManager.main.Next();
     }
 
     public void OnIncorrect()
     {
         // Debug.Log("Incorrect");
-        TestManager.main.OnIncorrect();
+        TestManager.main.Next();
     }
 }
 

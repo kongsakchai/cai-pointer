@@ -11,7 +11,6 @@ public class AnswerSlot : MonoBehaviour
     int[] answersData = new int[10];
 
     DraggableItem[] currentAnswer = new DraggableItem[5];
-    [SerializeField] TestManager testManager;
 
     public Vector2 findDropPosition(DraggableItem newAnswer, Vector2 initPosition)
     {
@@ -45,7 +44,9 @@ public class AnswerSlot : MonoBehaviour
 
         if (isCorrect)
         {
-            testManager.updateScore();
+            TestManager.main.updateScore();
         }
+
+        TestManager.main.Next();
     }
 }
