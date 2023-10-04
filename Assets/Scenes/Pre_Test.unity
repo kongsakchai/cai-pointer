@@ -5387,6 +5387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   answers:
   - {fileID: 691694321}
+  popup_correct: {fileID: 0}
+  popup_incorrect: {fileID: 0}
   answersCorrection: 01000000
 --- !u!1 &645707786
 GameObject:
@@ -9922,6 +9924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   answers:
   - {fileID: 1052618752}
+  popup_correct: {fileID: 0}
+  popup_incorrect: {fileID: 0}
   answersCorrection: 01000000
 --- !u!114 &1240870376
 MonoBehaviour:
@@ -10705,6 +10709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   answers:
   - {fileID: 2085609374}
+  popup_correct: {fileID: 0}
+  popup_incorrect: {fileID: 0}
   answersCorrection: 03000000
 --- !u!114 &1294923859
 MonoBehaviour:
