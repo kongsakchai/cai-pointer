@@ -7,16 +7,19 @@ using UnityEngine.SceneManagement;
 public class TestManager : MonoBehaviour
 {
     public static TestManager main;
+    int score;
+    int module;
+    int count;
     [SerializeField] GameObject[] question;
     [SerializeField] int start;
-
-    [SerializeField] int questionNumbers;
-    int score;
-    [SerializeField] TextMeshProUGUI textScore;
+    [SerializeField] int[] countInModule;
+    [SerializeField] TextMeshProUGUI[] textScore;
+    [SerializeField] TextMeshProUGUI[] textPreScore;
+    [Space]
     [SerializeField] bool pretest;
     [SerializeField] bool posttest;
-    [Space]
-    [SerializeField] TextMeshProUGUI textPreScore;
+    [SerializeField] string preText;
+    [SerializeField] string postText;
 
     void Awake()
     {
@@ -25,11 +28,15 @@ public class TestManager : MonoBehaviour
 
     void Start()
     {
-        Next();
-        if (textPreScore != null)
+        if (textPreScore.Length > 0)
         {
-            textPreScore.text = PlayerPrefs.GetInt("PreTest", 0) + "%";
+            for (int i = 0; i < textPreScore.Length; i++)
+            {
+                textPreScore[i].text = preText + PlayerPrefs.GetInt("PreTest" + i, 0) + "%";
+            }
         }
+        module = score = count = 0;
+        Next();
     }
 
     public void Next()
@@ -43,6 +50,28 @@ public class TestManager : MonoBehaviour
         {
             question[start++].SetActive(true);
         }
+
+        if (module < countInModule.Length && count > countInModule[module])
+        {
+            Debug.Log(countInModule[module] + " " + score);
+            int percen = (int)((float)score / (float)countInModule[module] * 100);
+
+            if (pretest)
+            {
+                PlayerPrefs.SetInt("PreTest" + module, percen);
+            }
+            if (posttest)
+            {
+                PlayerPrefs.SetInt("PostTest" + module, percen);
+            }
+
+            textScore[module].text = postText + percen + "%";
+            module++;
+            score = 0;
+            count = 0;
+        }
+
+        count++;
     }
 
     public void Restart()
@@ -53,17 +82,5 @@ public class TestManager : MonoBehaviour
     public void updateScore()
     {
         score += 1;
-        int percen = (int)((float)score / (float)questionNumbers * 100);
-        textScore.text = percen + "%";
-
-        if (pretest)
-        {
-            PlayerPrefs.SetInt("PreTest", percen);
-        }
-
-        if (posttest)
-        {
-            PlayerPrefs.SetInt("PostTest", percen);
-        }
     }
 }

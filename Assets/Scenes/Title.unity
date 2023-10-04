@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 208367684}
   - component: {fileID: 208367683}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Click Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
