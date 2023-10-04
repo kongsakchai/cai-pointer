@@ -44,12 +44,27 @@ public class AnswerSlot : MonoBehaviour
             }
         }
 
-        if (isCorrect)
+        if (TestManager.main != null)
         {
-            TestManager.main.updateScore();
+            if (isCorrect)
+            {
+                TestManager.main.updateScore();
+            }
+            TestManager.main.Next();
         }
 
-        TestManager.main.Next();
+        handlePopup();
+    }
+
+    public void Reset()
+    {
+        for (int i = 0; i < currentAnswer.Length; i++)
+        {
+            if (currentAnswer[i])
+            {
+                currentAnswer[i].resetPosition();
+            }
+        }
     }
 
     public void handlePopup()

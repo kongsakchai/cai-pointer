@@ -4257,6 +4257,8 @@ MonoBehaviour:
   answers:
   - {fileID: 2130035187}
   - {fileID: 839199316}
+  popup_correct: {fileID: 0}
+  popup_incorrect: {fileID: 0}
   answersCorrection: 0100000004000000
 --- !u!114 &448183058
 MonoBehaviour:
@@ -8868,6 +8870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   answers:
   - {fileID: 854146138}
+  popup_correct: {fileID: 0}
+  popup_incorrect: {fileID: 0}
   answersCorrection: 01000000
 --- !u!114 &966249394
 MonoBehaviour:
@@ -17676,6 +17680,8 @@ MonoBehaviour:
   answers:
   - {fileID: 298172617}
   - {fileID: 767872975}
+  popup_correct: {fileID: 0}
+  popup_incorrect: {fileID: 0}
   answersCorrection: 0300000001000000
 --- !u!114 &2053756965
 MonoBehaviour:
