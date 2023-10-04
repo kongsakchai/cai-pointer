@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class AnswerSlot : MonoBehaviour
 {
     public Image[] answers;
+    public GameObject popup_correct;
+    public GameObject popup_incorrect;
     public int[] answersCorrection = new int[10];
     int[] answersData = new int[10];
 
@@ -48,5 +50,26 @@ public class AnswerSlot : MonoBehaviour
         }
 
         TestManager.main.Next();
+    }
+
+    public void handlePopup()
+    {
+        bool isCorrect = true;
+        for (int i = 0; i < answersCorrection.Length; i++)
+        {
+            if (answersCorrection[i] != answersData[i])
+            {
+                isCorrect = false;
+            }
+        }
+
+        if (isCorrect)
+        {
+            popup_correct.SetActive(true);
+        }
+        else
+        {
+            popup_incorrect.SetActive(true);
+        }
     }
 }
